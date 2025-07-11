@@ -7,7 +7,7 @@ Directory Files (d)
 Directories are special files that contain references to other files and directories.
 Symbolic Links (l)
 Symbolic links, or symlinks, are files that point to another file or directory
-```
+
 
 
 ### How do IPC Objects ,named pipes, be accessed?
