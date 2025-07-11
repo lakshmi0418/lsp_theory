@@ -1,6 +1,6 @@
-#FILES THEORY
+# FILES THEORY
 ```c
-#What are the types of files present in Linux OS?
+# What are the types of files present in Linux OS?
 Regular files(-):
 These are the most common file type and contain user data, such as text files, images, executables, and scripts. 
 Directory Files (d)
@@ -10,7 +10,7 @@ Symbolic links, or symlinks, are files that point to another file or directory
 
 
 
-#How do IPC Objects ,named pipes, be accessed?
+# How do IPC Objects ,named pipes, be accessed?
 named pipes are created using the mkfifo system call 
 mkfifo /tmp/myfifo
 
@@ -39,7 +39,7 @@ Basic I/O system calls—specifically open(), read(), write(), and close()—are
     • File Size
     • The size of the file in bytes.
 
-#In which Object information of the file get stored?
+# In which Object information of the file get stored?
 
 The inode (index node) is a fundamental data structure in Unix-like file systems that stores all metadata about a file or directory, except for its name and actual data
 
@@ -78,7 +78,7 @@ yes, user-space applications can access file information stored in an inode, but
 # What happens after the kernel finds its inode object?
 After the kernel locates an inode object, it proceeds with several steps to facilitate file operations.
 
-#What are the contents of the file object?
+# What are the contents of the file object?
 
     • _dentry: Links the file to its directory entry, which in turn points to the inode. This linkage is crucial for path resolution and namespace management.
     • f_op: Points to a table of function pointers (struct file_operations) that define the file's operations, such as read(), write(), and ioctl(). This allows the kernel to dispatch system calls to the appropriate handler based on the file type.
@@ -103,24 +103,24 @@ Secondary data consists of additional fields that support the primary data but a
 
 In the Linux kernel, the base address of a struct file object is not explicitly stored in a single, dedicated location.
 
-100. When the fd table is created and what is the size of the fd table?
+# When the fd table is created and what is the size of the fd table?
     • Creation: The FD table is created when a new process is initialized.
     • Size: The size of the FD table is determined by the max_fds field in the files_struct structure.
 
-101. When is the file object created?
+# When is the file object created?
 
 In the Linux kernel, a struct file object is created when a file is opened by a process. 
 
-102. What does open() returns?
+# What does open() returns?
 
 The open() system call in Linux returns a file descriptor, which is a small, non-negative integer used to reference an open file within a process.
 
-103. When a file opens for the first time by using open() calls in your program, what is
+# When a file opens for the first time by using open() calls in your program, what is
 returns?
 
 when a file is opened for the first time using the open() system call in a program, it returns a file descriptor, which is a small, non-negative integer. This file descriptor serves as a handle for the open file and is used in subsequent system calls (such as read(), write(), lseek(), fcntl(), etc.) to refer to the open file.
 
-104. Why do read() system calls need access to file objects?
+# Why do read() system calls need access to file objects?
 
 ead() Needs the struct file Object
 When a user-space application invokes read(), it provides a file descriptor (fd) that indexes into the process's file descriptor table. This table entry points to a struct file object, which contains critical data for the read operation:
@@ -130,12 +130,12 @@ When a user-space application invokes read(), it provides a file descriptor (fd)
     4. File Pointer (f_dentry): Links to the dentry structure, which represents the file's name and location in the filesystem hierarchy.
     5. Inode Pointer (f_inode): Points to the inode structure, which contains metadata about the file, such as its size, permissions, and pointers to data blocks.
 
-105. Which system call do we use to change the cursor position without reading and
+# Which system call do we use to change the cursor position without reading and
 writing on a file?
 
 To change the cursor position (also known as the file offset) in a file without performing any read or write operations, you can use the lseek() system call.
 
-106. Can we open the same file from multiple processes? Explain the memory segment in
+# Can we open the same file from multiple processes? Explain the memory segment in
 kernel space?
 
 when multiple processes open the same file, each process receives its own file descriptor. These file descriptors point to the same underlying file object in the kernel, allowing the processes to perform operations like reading or writing to the file. 
@@ -148,30 +148,30 @@ Kernel space is reserved for the operating system's kernel, device drivers, and 
     • Page Tables: Data structures that map virtual addresses to physical addresses, enabling virtual memory.
 
 
-107. Kernel uses which object to represent a file?
+# Kernel uses which object to represent a file?
 
 n the Linux kernel, the object used to represent an open file is the struct file, defined in <linux/fs.h>. This structure encapsulates the state and operations associated with an open file for a specific process.
 
-108. Is there any limit on no. of files that can be opened from the program?
+# Is there any limit on no. of files that can be opened from the program?
 
 yes, there is a limit to the number of files a program can open simultaneously in Linux. This limit is controlled by the operating system and can vary based on system configuration and user settings.
-109. What are the standard I/O calls? Give some examples and what is the alternate name
+# What are the standard I/O calls? Give some examples and what is the alternate name
 of standard I/O call?
 
 C programming on Unix-like systems, standard I/O calls refer to system calls that facilitate file operations. These are low-level functions provided by the operating system's kernel, enabling programs to perform tasks such as opening, reading, writing, and closing files.
 
-🔧 Standard I/O System Calls
+# Standard I/O System Calls
 These system calls are defined in the <fcntl.h> and <unistd.h> headers:
     1. open(): Opens a file and returns a file descriptor.
 
-110. What are the basic I/O calls? Give some examples and what is the alternate name of
+# What are the basic I/O calls? Give some examples and what is the alternate name of
 basic I/O call?
-111. What is the difference between basic I/O calls and standard I/O calls?
+# What is the difference between basic I/O calls and standard I/O calls?
 
     • asic I/O Calls: Also referred to as low-level I/O, unbuffered I/O, or POSIX I/O.
     • Standard I/O Calls: Sometimes called high-level I/O, buffered I/O, or simply C Standard Library I/O.
 
-112. Other than the basic I/O and standard I/O calls,Is there any method to access the file ?
+# Other than the basic I/O and standard I/O calls,Is there any method to access the file ?
 
 s, in addition to basic I/O and standard I/O calls, there are several other methods to access files,
  each offering distinct advantages depending on the use case.
@@ -184,19 +184,19 @@ s, in addition to basic I/O and standard I/O calls, there are several other meth
 | Content-Addressable Storage | Data integrity and deduplication | Ensures uniqueness, prevents duplication | Not suitable for frequently changing data |                                                                                                                                                                               |
 | File Control Blocks         | Legacy systems                   | Simple file management         
           | 
-113. How do user space applications get access to the content of inode objects?
+# How do user space applications get access to the content of inode objects?
 
 User-space applications access the content of inode objects indirectly through the Linux Virtual File System (VFS) layer. The VFS abstracts the underlying filesystem details, providing a uniform interface for user-space applications to interact with files.
 
 
-114. How do you get access to kernel objects/kernel data structure/Information present in
+# How do you get access to kernel objects/kernel data structure/Information present in
 kernel space?
 
 Accessing kernel-space data structures directly from user space is generally prohibited due to strict separation between user and kernel modes in modern operating systems like Linux. This separation ensures system stability, security, and process isolation.
 115. Which system calls are used to access the file object?
 Open read write lseek close
 
-116. Which system calls are used to access the Inode object?
+# Which system calls are used to access the Inode object?
 
     • pen() / openat(): When an application opens a file, the kernel resolves the file path to a specific inode. This involves:
     • Using the lookup() function to find the inode associated with the file name.
@@ -206,6 +206,5 @@ Open read write lseek close
     • stat() / fstat() / lstat(): These system calls retrieve metadata about a file. The kernel accesses the inode to gather information such as file size, permissions, and timestamps.
     • close(): When a file descript
 
-117. How to print the Hello wo    • Group ID (GID) of the file's group.
 
 
