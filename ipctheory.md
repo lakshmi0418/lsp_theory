@@ -1,5 +1,5 @@
 #IPC THEORY
-```c
+
 ### What is meant by an IPC Mechanism? 
 
 IPC (Inter-Process Communication) refers to methods used by processes (independent executing programs) to exchange data and signals with each other. Since each process has its own memory space, IPC provides a way for them to communicate and coordinate.
