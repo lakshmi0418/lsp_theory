@@ -1,6 +1,6 @@
 # FILES THEORY
 
-# What are the types of files present in Linux OS?
+# What are the types of files present in Linux OS?.
 Regular files(-):.
 These are the most common file type and contain user data, such as text files, images, executables, and scripts. 
 Directory Files (d)
