@@ -205,6 +205,6 @@ Open read write lseek close
     • read() / write(): These system calls perform operations on the file descriptor, which is associated with an inode. The kernel uses the file operations (f_op) defined in the inode's struct inode to handle these operations.
     • stat() / fstat() / lstat(): These system calls retrieve metadata about a file. The kernel accesses the inode to gather information such as file size, permissions, and timestamps.
     • close(): When a file descript
-
+.
 
 
