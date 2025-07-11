@@ -22,7 +22,7 @@ mkfifo /tmp/myfifo
     • mmap() (Memory Mapping)
     • Maps files or devices into memory, allowing applications to access hardware buffers directly.
     • open() and close()
-```
+
 ### Why are basic I/O calls called universal I/O calls?
 Basic I/O system calls—specifically open(), read(), write(), and close()—are termed "universal I/O calls" because they provide a consistent and uniform interface for performing input and output operations across various types of devices and file systems. This uniformity simplifies application development by abstracting the underlying hardware complexities.
 
