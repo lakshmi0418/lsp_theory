@@ -1,5 +1,5 @@
 # FILES THEORY
-
+``c
 # What are the types of files present in Linux OS?.
 Regular files(-):.
 These are the most common file type and contain user data, such as text files, images, executables, and scripts. 
@@ -7,7 +7,7 @@ Directory Files (d)
 Directories are special files that contain references to other files and directories.
 Symbolic Links (l)
 Symbolic links, or symlinks, are files that point to another file or directory
-
+```
 
 
 # How do IPC Objects ,named pipes, be accessed?
