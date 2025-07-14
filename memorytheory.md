@@ -38,35 +38,63 @@ Occurs when allocated memory blocks are larger than needed, causing wasted space
 ### 10. Explain external fragmentation.
 Free memory is divided into small scattered chunks outside allocated memory blocks, so large requests may fail despite sufficient total free memory.
 ### 11. How is fragmentation managed in memory allocation?
+| Fragmentation Type     | Management Techniques                                         |
+| ---------------------- | ------------------------------------------------------------- |
+| External Fragmentation | Compaction, paging, segmentation, smart allocation algorithms |
+| Internal Fragmentation | Smaller allocation units, slab allocation                     |
+
 ### 12. Describe the concept of paging.
+paging is a memory management technique that eliminates the problems of external fragmentation by dividing both the physical memory and the process’s virtual memory into fixed-size blocks called pages (virtual) and frames (physical).
 ### 13. Explain segmentation.
+egmentation is a memory management scheme that divides a program’s memory into variable-sized logical units called segments, each representing a meaningful part of the program, such as:
+
+    Code segment
+
+    Data segment
+
+    Stack segment
+
+    Heap segment
 ### 14. What is the difference between paging and segmentation?
-15. Define page table.
-16. Define Memory Management Unit (MMU).
-17. Explain the role of MMU in memory managem
-18.Describe the translation lookaside buffer (TLB).
-19. What is TLB miss? How is it handled?
-20. Discuss the working principle of MMU.
-21. Explain the concept of address translation in MMU.
-22. How does MMU support virtual memory?
-23. Describe the process of page table traversal in MMU.
-24. What is page fault handling in MMU?
-25. Explain the page replacement algorithms used in MMU.
-26. Define page replacement algorithms.
-27. Describe the FIFO page replacement algorithm.
-28. Discuss the optimal page replacement algorithm.
-29. Explain the LRU (Least Recently Used) page replacement algorithm.
-30. What is the clock page replacement algorithm?
-31. Discuss the advantages and disadvantages of each page replacement algorithm.
-32. Compare and contrast different page replacement algorithms.
-33. Explain the working of the NRU (Not Recently Used) page replacement algorithm.
-34. Describe the working of the Second Chance page replacement algorithm.
-35. Discuss the enhancements to basic page replacement algorithms.
-36. Define segmentation in memory management.
-37. Explain the benefits of segmentation.
-38. What are the disadvantages of segmentation?
-39. Describe the implementation of segmentation.
-40. Discuss segmentation fault and its causes.
+| Feature             | **Paging**                                                            | **Segmentation**                                              |
+| ------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Memory division** | Divides memory into fixed-size blocks called **pages** and **frames** | Divides memory into variable-sized blocks called **segments** |
+| **Size**            | Pages and frames are **fixed-size**                                   | Segments are **variable-size**                                |
+| **Purpose**         | Solves **external fragmentation**                                     | Reflects **logical structure** of a program                   |
+| **Addressing**      | Uses **page number + offset**                                         | Uses **segment number + offset**                              |
+| **Logical view**    | Memory is treated as a flat linear address space                      | Memory is organized logically (code, stack, heap)             |
+| **Fragmentation**   | May have **internal fragmentation**                                   | May have **external fragmentation**                           |
+| **Table used**      | **Page table** (maps pages to frames)                                 | **Segment table** (maps segments to memory)                   |
+| **Protection**      | Less flexible (same permissions for all pages)                        | Can set different protections per segment                     |
+| **Sharing**         | More complex                                                          | Easier (entire segments like code can be shared)              |
+
+### 15. Define page table.
+A page table is a data structure used by the operating system in paging-based memory management to map virtual addresses to physical addresses.
+### 16. Define Memory Management Unit (MMU).
+### 17. Explain the role of MMU in memory managem
+### 18.Describe the translation lookaside buffer (TLB).
+### 19. What is TLB miss? How is it handled?
+### 20. Discuss the working principle of MMU.
+### 21. Explain the concept of address translation in MMU.
+### 22. How does MMU support virtual memory?
+### 23. Describe the process of page table traversal in MMU.
+### 24. What is page fault handling in MMU?
+### 25. Explain the page replacement algorithms used in MMU.
+### 26. Define page replacement algorithms.
+### 27. Describe the FIFO page replacement algorithm.
+### 28. Discuss the optimal page replacement algorithm.
+### 29. Explain the LRU (Least Recently Used) page replacement algorithm.
+### 30. What is the clock page replacement algorithm?
+### 31. Discuss the advantages and disadvantages of each page replacement algorithm.
+### 32. Compare and contrast different page replacement algorithms.
+### 33. Explain the working of the NRU (Not Recently Used) page replacement algorithm.
+### 34. Describe the working of the Second Chance page replacement algorithm.
+### 35. Discuss the enhancements to basic page replacement algorithms.
+### 36. Define segmentation in memory management.
+### 37. Explain the benefits of segmentation.
+### 38. What are the disadvantages of segmentation?
+### 39. Describe the implementation of segmentation.
+### 40. Discuss segmentation fault and its causes.
 41. Explain the concept of segment registers.
 42. What is a segment table?
 43. How does segmentation support protection and sharing of memory?
